@@ -1,12 +1,7 @@
 package ru.itsjava;
 
-import org.h2.tools.Console;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import ru.itsjava.domain.Genre;
-import ru.itsjava.repository.FilmRepository;
-import ru.itsjava.repository.GenreRepository;
 import ru.itsjava.service.FilmService;
 import ru.itsjava.service.GenreService;
 
