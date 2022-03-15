@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import ru.itsjava.domain.Film;
+import ru.itsjava.rest.dto.FilmDto;
 import ru.itsjava.service.FilmService;
-import ru.itsjava.rest.dto.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
 public class FilmController {
     private final FilmService filmService;
 
-    @GetMapping("/films")
+    @GetMapping("/film")
     public String filmsPage(Model model) {
         List<Film> allFilms = filmService.getAllFilms();
         List<FilmDto> filmDtos = new ArrayList<>();
@@ -28,4 +28,18 @@ public class FilmController {
         model.addAttribute("films", filmDtos);
         return "films-page";
     }
+
+//    @GetMapping("/genre/{id}/edit")
+//    public String editPage(@PathVariable("id") String id, Model model) {
+//        GenreDto dto = GenreDto.toDto(genreService.getGenreById(Long.parseLong(id)));
+//        model.addAttribute("genreDto", dto);
+//        return "edit-genre-page";
+//    }
+//
+//    @PostMapping("/genre/{id}/edit")
+//    public String editPage(GenreDto genreDto) {
+//        System.out.println(GenreDto.fromDto(genreDto));
+//        genreService.updateGenre(GenreDto.fromDto(genreDto));
+//        return "redirect:/";
+//    }
 }
